@@ -9,8 +9,8 @@ import java.io.File;
 
 public class OpenFileDialog extends AlertDialog.Builder {
 
-    private String TAG = "MyLog";
     private String currentPath = Environment.getExternalStorageDirectory().getPath();
+    private String TAG = "MyLog";
 
     public OpenFileDialog(Context context) {
         super(context);
@@ -20,13 +20,8 @@ public class OpenFileDialog extends AlertDialog.Builder {
     }
 
     private String[] getFiles(String directoryPath) {
-        directoryPath = "/mnt/sdcard";
         File directory = new File(directoryPath);
         File[] files = directory.listFiles();
-        Log.d(TAG, "directoryPath - " + directoryPath);
-        Log.d(TAG, "exist - " + directory.exists());
-        Log.d(TAG, "isDirectory - " + directory.isDirectory());
-        Log.d(TAG, "files - " + files);
         Log.d(TAG, "files.length - " + files.length);
         String[] result = new String[files.length];
         for (int i = 0; i < files.length; i++) {
