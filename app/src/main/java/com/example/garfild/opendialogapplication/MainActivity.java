@@ -13,5 +13,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnOpenFileClick(View view) {
+        OpenFileDialog fileDialog = new OpenFileDialog(this);
+        fileDialog.show();
     }
 }
