@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">OpenDialogApplication</string>
+    <string name="open_file_button">Open File</string>
+</resources>
