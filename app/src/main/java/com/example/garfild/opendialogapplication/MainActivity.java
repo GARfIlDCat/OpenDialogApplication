@@ -8,6 +8,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,7 +52,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnOpenFileClick(View view) {
-        OpenFileDialog fileDialog = new OpenFileDialog(this);
+        OpenFileDialog fileDialog = new OpenFileDialog(this)
+                .setFilter(".*\\..*")
+                .setOpenDialogListener(new OpenFileDialog.OpenDialogListener() {
+                    @Override
+                    public void OnSelectedFile(String fileName) {
+                        Toast.makeText(getApplicationContext(), fileName, Toast.LENGTH_LONG).show();
+                    }
+                });
         fileDialog.show();
     }
 }
